@@ -1,6 +1,6 @@
 from selenium import webdriver
 
-PATH = '/usr/bin/chromewebdriver'
+PATH = '/usr/bin/chromedriver'
 driver = webdriver.Chrome(PATH)
 
-driver.get("https://techwithtim.net")
+driver.get("https://www.techwithtim.net")
