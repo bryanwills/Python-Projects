@@ -1,0 +1,39 @@
+CeCe ee fee ese.)
+3 ; ae t a
+: \ LAER RY
+“a Si, ge eS
+. (aw - r |
+2 4 m/
+r = ~
+html = requests.get("https://www.imdb.com/chart/boxoffice") a 3 x ym
+soup = BeautifulSoup(html.text, "html.parser") aii ey & ate ~~
+now_playing = {} te ay ‘
+ee Ah Na Sw 4
+a 4 ~ SSR | ; ae 7
+def movie titles() r ae ne Loy 1 a
+for i, movie in enumerate(soup.find_all("td", class_="titleColumn"), [iy ieee wi eS 1 €
+title = movie.a.text f ah az at Nt
+now_playing[i] = title q “a a . . 5
+print(f"{i}. {title}") LWPes . os
+en “cy
+def user_input() oA <¥ ‘| ~
+while True “a
+choice = input("Select movie (eg: 3) or Q to quit: ") 3
+if choice.lower() == "q" aat +
+break ee Bs
+a Ke a :
+movie = now_playing[int(choice)] AF te hte VY,
+print(f"Playing: {movie} Trailer")
+subprocess..cal1( Eee
+tC =
+mp",
+"--no-terminal”,
+"--ytdl-format-bestvideo+bestaudio",
+f"ytdl://ytsearch: '{movie} Trailer’,
+] User: nytly
+) Distro: arch
+except: Bloat: 661
+print("Invalid input.") wet: Fra
+Shell: bash
+Python: flix.py, line 10. kernel: 5.4.2
+

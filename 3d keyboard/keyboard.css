@@ -1,0 +1,159 @@
+:root {
+  /* keyboard width */
+  --width: 1000px;
+  /* keyboard height */
+  --height: 420px;
+  /* border radius */
+  --radius: 5px;
+  /* defines how high the button is raised */
+  --depth: 5px;
+  /* letter color */
+  --color: yellow;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+body {
+  /* centering the content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* adding a gradient background */
+  background-image: linear-gradient(to bottom, hsl(225 25% 20%) 0%, hsl(225 40% 10%) 100%);
+}
+#container {
+  /* the perspective is equal to the initial keyboard width */
+  perspective: var(--width);
+}
+.keyboard {
+  /* spreading sections evenly */
+  display: flex;
+  justify-content: space-between;
+  /* setting the size */
+  width: var(--width);
+  height: var(--height);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  /* adding a gradient background */
+  background-image: linear-gradient(to bottom, hsl(192 11% 53%) 0%, hsl(192 26% 43%) 100%);
+  /* setting the border radius */
+  border-radius: var(--radius);
+  /* calculating paddings */
+  padding: calc(var(--radius) * 2);
+  box-sizing: border-box;
+  /* enabling the 3d mode */
+  transform-style: preserve-3d;
+  /* applying the transform rule */
+  transform: rotateX(0.13turn) rotateY(0turn) rotateZ(0turn);
+}
+.overlay {
+  /* setting the size */
+  width: var(--width);
+  height: var(--height);
+  /* centering the overlay */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%) translateZ(10px);
+  /* adding a gradient background */
+  background-image: linear-gradient(to bottom, #ffffff33 0%, transparent 100%);
+  /* adding a noisy effect */
+  filter: blur(25px);
+}
+.section {
+  /* spreading rows evenly */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.row {
+  /* spreading buttons evenly */
+  display: flex;
+  justify-content: space-between;
+}
+.row.functions .button {
+  /* calculating the height of the function button */
+  height: calc(var(--height) / 10);
+}
+.row.actions .button,
+.row.functions .button {
+  /* calculating the width of the action and function buttons */
+  --size: calc(var(--width) / 18);
+}
+.button {
+  /* setting the default dimensions of the button */
+  --size: calc(var(--width) / 20);
+  height: calc(var(--height) / 7);
+  width: var(--size);
+  /* setting the border radius */
+  border-radius: var(--radius);
+  /* centering the content of the button */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* additional settings */
+  box-sizing: border-box;
+  background: #000000;
+  /* applying the global color */
+  color: var(--color);
+  /* adding the default margin */
+  margin-left: calc(var(--width) / 200);
+  /* raising the button above the keyboard */
+  transform: translate3d(0px, 0px, var(--depth));
+  /* enabling the 3d mode */
+  transform-style: preserve-3d;
+  /* calculating the perspective from the width */
+  perspective: calc(var(--size) * 3);
+}
+.button:first-child {
+  /* reset margin for the leftmost button */
+  margin-left: 0;
+}
+.button .shadow {
+  /* centering the shadow */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  /* applying the transform */
+  transform: translate3d(-50%, -50%, calc(var(--depth) * -1));
+  background: #00000088;
+}
+.button.multi {
+  /* placing labels under each other */
+  flex-direction: column-reverse;
+}
+/* the next set of rules are buttons adjustments */
+.button.backspace,
+.button.tab {
+  --size: calc(var(--width) / 13);
+}
+.button.backspace {
+  font-size: 0.8rem;
+}
+.button.capslock,
+.button.enter {
+  --size: calc(var(--width) / 11);
+}
+.button.shift {
+  --size: calc(var(--width) / 9);
+}
+.button.space {
+  --size: calc(var(--width) / 2.3);
+}
+/* settings for the special button */
+.button.dev {
+  /* defining the accent color */
+  --accent: #ffffff;
+  color: var(--accent);
+  /* adjusting letter spacing for the better readability */
+  letter-spacing: 0.5px;
+  /* adding the glow effect */
+  text-shadow: 0 0 5px var(--accent), 0 0 10px var(--accent), 0 0 15px var(--accent), 0 0 20px var(--color), 0 0 30px var(--color),
+    0 0 40px var(--color), 0 0 50px var(--color), 0 0 75px var(--color);
+}
+/* the empty button settings */
+.button.empty {
+  background: transparent;
+}
