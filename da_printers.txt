@@ -1,3 +1,0 @@
-172.21.1.25 c7000 admin/1111
-172.21.1.230 ricoh c5200s admin/(blank)
-172.21.1.229 ricoh imc4500 admin/(blank)
